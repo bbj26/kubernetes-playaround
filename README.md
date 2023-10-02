@@ -1,4 +1,4 @@
-### Kubernetes playaround
+## Kubernetes playaround
 
 For local deployment with Minikube
 
@@ -42,7 +42,28 @@ Cluster with two pods:
 
 <br />
 
+### Project startup steps
 
+    minikube start
+
+In terminal, while positioned in ```kubernetes-playaround``` folder, execute next commands (order is important):
+
+    kubectl apply -f mongo-config.yaml
+
+    kubectl apply -f mongo-secret.yaml
+
+    kubectl apply -f mongo.yaml
+
+    kubectl apply -f webapp.yaml
+
+
+Check Minikube IP adress with: 
+    
+    minikube ip
+
+Use that address and port: 30100 to access webapp through browser, for example: http://192.168.49.2:30100
+
+### Possible startup problems solutions
 
 If the NodePort service webapp with `MinikubeIP:NodePort` is not accessible through browser, next command can be executed to start service:
     
